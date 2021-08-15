@@ -1,12 +1,15 @@
 // This is button a function. It starts a 60 second countdown.
 input.onButtonPressed(Button.A, function () {
     game.startCountdown(60000)
+    countdown = 1
 })
 // This is the logo up fuction. It choses a random item from the list, displays its string, and removes it from the list for one round.
 input.onGesture(Gesture.LogoUp, function () {
-    Index = randint(0, text_list.length)
-    basic.showString("" + (text_list[Index]))
-    text_list.removeAt(Index)
+    if (countdown == 1) {
+        Index = randint(0, text_list.length)
+        basic.showString("" + (text_list[Index]))
+        text_list.removeAt(Index)
+    }
 })
 // This is the screen down fuction. It adds a point to the score indicating the guess was correct.
 input.onGesture(Gesture.ScreenDown, function () {
@@ -15,11 +18,22 @@ input.onGesture(Gesture.ScreenDown, function () {
 // This is button b function. It starts a 120 second coundown.
 input.onButtonPressed(Button.B, function () {
     game.startCountdown(120000)
+    countdown = 1
+})
+// This is the logo up fuction. It choses a random item from the list, displays its string, and removes it from the list for one round.
+input.onGesture(Gesture.LogoDown, function () {
+    if (countdown == 1) {
+        Index = randint(0, text_list.length)
+        basic.showString("" + (text_list[Index]))
+        text_list.removeAt(Index)
+    }
 })
 // This is starting the game. It sets the score to 0, creates a list of things to act out, and shows the time for each button.
 let Index = 0
 let text_list: string[] = []
+let countdown = 0
 game.setScore(0)
+countdown = 0
 text_list = [
 "Dog",
 "Cat",
@@ -95,4 +109,4 @@ text_list = [
 "Potato",
 "Boogalee!!"
 ]
-basic.showString("A=60sec B=120sec")
+basic.showString("1")

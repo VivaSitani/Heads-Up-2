@@ -1,9 +1,11 @@
 # This is button a function. It starts a 60 second countdown.
+
 def on_button_pressed_a():
     game.start_countdown(60000)
 input.on_button_pressed(Button.A, on_button_pressed_a)
 
 # This is the logo up fuction. It choses a random item from the list, displays its string, and removes it from the list for one round.
+
 def on_gesture_logo_up():
     global Index
     Index = randint(0, len(text_list))
@@ -12,11 +14,13 @@ def on_gesture_logo_up():
 input.on_gesture(Gesture.LOGO_UP, on_gesture_logo_up)
 
 # This is the screen down fuction. It adds a point to the score indicating the guess was correct.
+
 def on_gesture_screen_down():
     game.add_score(1)
 input.on_gesture(Gesture.SCREEN_DOWN, on_gesture_screen_down)
 
 # This is button b function. It starts a 120 second coundown.
+
 def on_button_pressed_b():
     game.start_countdown(120000)
 input.on_button_pressed(Button.B, on_button_pressed_b)
