@@ -12,8 +12,16 @@ input.onGesture(Gesture.LogoUp, function () {
     }
 })
 // This is the screen down fuction. It adds a point to the score indicating the guess was correct.
+input.onGesture(Gesture.ScreenUp, function () {
+    if (countdown == 1) {
+        game.addScore(0)
+    }
+})
+// This is the screen down fuction. It adds a point to the score indicating the guess was correct.
 input.onGesture(Gesture.ScreenDown, function () {
-    game.addScore(1)
+    if (countdown == 1) {
+        game.addScore(1)
+    }
 })
 // This is button b function. It starts a 120 second coundown.
 input.onButtonPressed(Button.B, function () {
@@ -109,4 +117,4 @@ text_list = [
 "Potato",
 "Boogalee!!"
 ]
-basic.showString("1")
+basic.showString("A=60sec B=120sec")
